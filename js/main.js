@@ -64,6 +64,48 @@ $(document).ready(function() {
 
     })
 
+    $('header li').click(function() {
+        var destino = $('bContato');
+        var section = $(this).attr('id');
+
+        console.log(section)
+
+        switch(section) {
+
+            case sobre: {
+                destino = $('#sobre-a-loja')
+            break;
+            }
+
+            case destaque: {
+                destino = $('em-destaque')
+            break;
+            }
+
+            case promocoes: {
+                destino = $('promocoes')
+            break;
+            }
+
+            case contato: {
+                destino = $('bContato')
+                alert(destino)
+            break;
+            }
+
+            default: {
+                destino = '';
+            break;
+            }
+
+        }
+
+        $('html').animate({
+            scrollTop: destino.offset().top
+        }, 1000)
+
+    })
+
     $('.lista-veiculos button').click(function() {
         var destino = $('#contato');
         const nomeVeiculo = $(this).parent().find('h3').text();
